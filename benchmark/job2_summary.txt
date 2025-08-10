@@ -1,0 +1,6 @@
+[pusheen@cedar1 small-graph-s-bandwidths]$ sacct -j 65633387 --format=JobID,Elapsed,Total>
+JobID           Elapsed   TotalCPU     MaxRSS      State
+------------ ---------- ---------- ---------- ----------
+65633387       00:10:03  24:59.413             COMPLETED
+65633387.ba+   00:10:03  24:59.412   1796728K  COMPLETED
+65633387.ex+   00:10:03  00:00.001       256K  COMPLETED

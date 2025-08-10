@@ -1,0 +1,27 @@
+name = "small-graph-s-bandwidths"
+uuid = "c5fb2a31-9c3e-43bb-8e2d-f6802c10409e"
+keywords = [
+    "linear algebra",
+    "graph theory",
+    "spectral graph theory",
+    "quantum computing",
+    "data generation",
+]
+license = "MIT"
+authors = ["Luis M. B. Varona <lm.varona@outlook.com>"]
+description = "A computational survey of the S-bandwidths of small simple connected graphs."
+maintainers = ["Luis M. B. Varona <lm.varona@outlook.com>"]
+readme = "README.md"
+repository = "https://github.com/Luis-Varona/small-graph-s-bandwidths"
+version = "1.0.0"
+
+[deps]
+GraphIO = "aa1b3936-2fda-51b9-ab35-c553d3a640a2"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+SDiagonalizability = "addecc1e-711d-4b49-877e-3152f1574f63"
+
+[compat]
+GraphIO = "0.7"
+JSON = "0.21.2"
+SDiagonalizability = "0.1"
+julia = "1.10"

@@ -1,0 +1,6 @@
+[pusheen@cedar5 ~]$ sacct -j 65631820 --format=JobID,Elapsed,TotalCPU,MaxRSS,State
+JobID           Elapsed   TotalCPU     MaxRSS      State
+------------ ---------- ---------- ---------- ----------
+65631820       00:08:27  22:22.656             COMPLETED
+65631820.ba+   00:08:27  22:22.655   2097188K  COMPLETED
+65631820.ex+   00:08:27  00:00.001       256K  COMPLETED

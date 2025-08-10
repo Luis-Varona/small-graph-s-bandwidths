@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69.0.0", "wheel>=0.42.0", "cython>=3.0.0", "numpy>=1.25.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "small-graph-s-bandwidths"
+version = "1.0.0"
+description = "A computational survey of the S-bandwidths of small simple connected graphs."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+    { name = "Luis M. B. Varona", email = "lm.varona@outlook.com" },
+]
+maintainers = [
+    { name = "Luis M. B. Varona", email = "lm.varona@outlook.com" },
+]
+dependencies =["networkx>=3.2", "numpy>=1.25.0", "pandas>=2.1.0", "polars>=0.20.0"]
+keywords = ["graph theory", "linear algebra", "quantum computing"]
+
+[project.urls]
+Repository = "https://github.com/Luis-Varona/small-graph-s-bandwidths"
+
+[project.optional-dependencies]
+static-analysis = ["mypy", "ruff"]
+
+[tool.mypy]
+disable_error_code = ["import-untyped"]
