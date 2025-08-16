@@ -16,7 +16,13 @@ maintainers = [
     { name = "Luis M. B. Varona", email = "lm.varona@outlook.com" },
 ]
 dependencies =["networkx>=3.2", "numpy>=1.25.0", "pandas>=2.1.0", "polars>=0.20.0"]
-keywords = ["graph theory", "linear algebra", "quantum computing"]
+keywords = [
+    "linear algebra",
+    "graph theory",
+    "spectral graph theory",
+    "quantum computing",
+    "data generation",
+]
 
 [project.urls]
 Repository = "https://github.com/Luis-Varona/small-graph-s-bandwidths"
