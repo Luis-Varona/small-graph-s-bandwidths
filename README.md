@@ -10,15 +10,17 @@ Recall that an undirected, possibly weighted graph *G* is said to be "*S*-diagon
 
 For specific choices of *S* (namely {-1, 1} and {-1, 0, 1}), the *S*-bandwidth of a quantum network has been shown to be an indicator of high state transfer fidelity due to automorphic properties of the graph, a topic of interest in the broader context of quantum information theory. As such, I present a computational survey of the *S*-bandwidths of some small simple connected graphs. More precisely, I identify all {-1, 0, 1}-diagonalizable graphs, along with their precise {-1, 0, 1}- and {-1, 1}-bandwidths, in the following categories:
 
-- simple connected graphs on up to 11 vertices;
-- simple connected regular graphs on up to 14 vertices; and
-- simple connected bipartite graphs on up to 15 vertices.
+- simple connected graphs on up to 11 vertices (table `con_graphs_1to11`);
+- simple connected regular graphs on up to 14 vertices (table `con_reg_graphs_1to14`); and
+- simple connected bipartite graphs on up to 15 vertices (table `con_bip_graphs_1to15`).
+
+These are all stored in a single SQLite database file: `data/small_graph_s_bandwidths.db`.
 
 ## Methodology
 
 Only graphs whose Laplacian eigenvalues are all integers ("Laplacian integral graphs") can be *S*-diagonalizable for *S* = {-1, 0, 1} or *S* = {-1, 1}.[^JP25] Therefore, I started with precomputed lists of all Laplacian integral graphs in each of the three aforementioned categories (available in the `data/input/` directory in the form of graph6 strings), taken from a previous survey I had performed on the [Cedar supercomputer](https://www.sfu.ca/research/institutes-centres-facilities/other-facilities/supercomputer-cedar.html) located at Simon Fraser University.[^Var25]
 
-I then used the Julia package *SDiagonalizability.jl*, written by myself in collaboration with [Dr. Nathaniel Johnston](https://github.com/nathanieljohnston) and Dr. Sarah Plosker, to determine which of these graphs are {-1, 0, 1}-diagonalizable and minimize their {-1, 0, 1}- and {-1, 1}-bandwidths.[^VJP25] The results for each category were then saved as a separate table in a single SQLite database file: `data/small_graph_s_bandwidths.db`.
+I then used the Julia package *SDiagonalizability.jl*, written by myself in collaboration with [Dr. Nathaniel Johnston](https://github.com/nathanieljohnston) and Dr. Sarah Plosker, to determine which of these graphs are {-1, 0, 1}-diagonalizable and minimize their {-1, 0, 1}- and {-1, 1}-bandwidths.[^VJP25] The results for each category were then saved as a separate table in our SQLite database.
 
 These computations were also performed on Cedar; see the `jobs/` directory for the job scripts used, as well as `jobs/setup_pyenv.sh` for the Python environment setup script. Summaries of the running time, maximum resident set size, etc. for each job are available in `benchmark/`.
 
@@ -48,7 +50,7 @@ The schema for the SQLite database includes the custom data types `ARRAY` and `B
 ### Access
 
 Should one wish to access non-binary data in the SQLite database, it is fairly straightforward to establish a connection to
-`data/small_graph_s_bandwidths.db` and query the tables directly. In cases when the NPY binary data is needed, however, one may use the utility functions `read_table_as_pandas_df(path_to_db: str, table_name: str)` and `read_table_as_polars_df(path_to_db: str, table_name: str)` in `src/helpers/sql_mapping.py`. For instance, if one is working from the root directory and wishes to access the data on connected bipartite graphs in the form of a Polars DataFrame, one could run the following command (without even needing to import `sqlite3` or `polars`):
+`data/small_graph_s_bandwidths.db` and query the tables directly (see the preceding **Overview** section for the table names). In cases when the NPY binary data is needed, however, one may use the utility functions `read_table_as_pandas_df(path_to_db: str, table_name: str)` and `read_table_as_polars_df(path_to_db: str, table_name: str)` in `src/helpers/sql_mapping.py`. For instance, if one is working from the root directory and wishes to access the data on connected bipartite graphs in the form of a Polars DataFrame, one could run the following command (without even needing to import `sqlite3` or `polars`):
 
 ```python
 >>> from src.helpers.sql_mapping import read_table_as_polars_df
