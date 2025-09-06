@@ -104,6 +104,10 @@ shape: (16, 16)
 
 The scripts in `jobs/` are designed specifically for multithreaded execution on a high-performance computing cluster, but they are not too computationally intensive and could be adapted to run on a single machine with fewer threads should one aim to confirm reproducibility. (Do note that the file paths listed in the scripts are still specific to my personal account on Cedar, so they would need to be modified accordingly.) The only requirements are working installations of Julia (v1.10 or later), Python (v3.11 or later), and several registered Julia and Python packages listed in `Project.toml` and `pyproject.toml`, respectively.
 
+## Citing
+
+I encourage you to cite this work if you find this data useful in your research. The citation information may be found in the [CITATION.bib](https://raw.githubusercontent.com/Luis-Varona/small-graph-s-bandwidths/main/CITATION.bib) file within the repository.
+
 ## References
 
 [^JP25]: N. Johnston and S. Plosker. Laplacian {−1,0,1}- and {−1,1}-diagonalizable graphs. *Linear Algebra and its Applications*, 704:309&ndash;339, 2025. [10.1016/j.laa.2024.10.016](https://doi.org/10.1016/j.laa.2024.10.016).
